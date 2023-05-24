@@ -157,11 +157,14 @@ public abstract class NotificationService {
     @Override
     public void sendNotification(Notification notification) throws NotificationException {
       Preconditions.checkNotNull(notification, "notification");
-
+      String[] SlackUserRequester = notification.properties.get("BENEFICIARY").split("@")
+      String[] SlackUserApprover = notification.properties.get("APPROVER").split("@")
       var message =
         String.format(
-          "User `%s` has activated role `%s` in project `%s`.\n\nJustification: _%s_ activasdate: %s",
+          "User `%s` <@%s> approver <@%s>has activated role `%s` in project `%s`.\n\nJustification: _%s_ activate: %s",
           notification.properties.get("BENEFICIARY"),
+          SlackUserRequester[1],
+          SlackUserApprover[1],
           notification.properties.get("ROLE"),
           notification.properties.get("PROJECT_ID"),
           notification.properties.get("JUSTIFICATION"),
