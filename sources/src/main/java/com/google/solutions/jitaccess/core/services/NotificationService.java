@@ -165,7 +165,8 @@ public abstract class NotificationService {
           notification.properties.get("ROLE"),
           notification.properties.get("PROJECT_ID"),
           notification.properties.get("JUSTIFICATION"),
-          notification.properties.get("ACTIVATION_URL")                      );
+          notification.properties.get("ACTION_URL")
+                      );
 
       try {
         this.slackAdapter.sendSlackMessage(message);
