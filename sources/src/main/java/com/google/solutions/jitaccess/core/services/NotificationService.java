@@ -160,7 +160,7 @@ public abstract class NotificationService {
 
       var message =
         String.format(
-          "User `%s` has activated role `%s` in project `%s`.\n\nJustification: _%s_ activate: %s",
+          "User `%s` has activated role `%s` in project `%s`.\n\nJustification: _%s_ activasdate: %s",
           notification.properties.get("BENEFICIARY"),
           notification.properties.get("ROLE"),
           notification.properties.get("PROJECT_ID"),
